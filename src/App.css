@@ -1,38 +1,122 @@
-.App {
-  text-align: center;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+#board {
+  width: 100%;
+  height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: space-around;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  background-color: #252525;
+}
+
+.title-header {
+  width: 500px;
+  height: 130px;
+  border: 1px solid green;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+.title {
+  width: 100%;
+  height: 65px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.infos {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 65px;
+  padding: 0px 20px;
+}
+
+.infos p {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+.infos button {
+  padding: 10px;
+  border: 1px solid yellowgreen;
+  color: black;
+  background-color: yellow;
+  border-radius: 5px;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.infos button:hover {
+  box-shadow: 0px 0px 5px 2px rgb(183, 183, 106);
+}
+
+.cards-holder {
+  width: max-content;
+  height: max-content;
+  display: grid;
+  gap: 4px;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+}
+
+.one-card {
+  width: 120px;
+  height: 120px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+#flipped {
+  transform: rotateY(180deg);
+}
+
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 3px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.front {
+  transform: rotateY(180deg);
+  background-color: rgb(198, 230, 198);
+}
+
+.front img {
+  width: 90px;
+  height: 90px;
+}
+
+.back {
+  font-size: 70px;
+  background-color: rgb(78, 78, 78);
+  color: rgb(119, 117, 117);
+}
+
+.game-over {
+}
+
+@media screen and (max-width: 400px) {
+  .title-header {
+    width: 95%;
   }
-  to {
-    transform: rotate(360deg);
+
+  .one-card {
+    width: 85px;
+    height: 85px;
   }
 }
